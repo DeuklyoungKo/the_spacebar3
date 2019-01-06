@@ -8,10 +8,6 @@
 
 namespace App\Controller;
 
-
-
-
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -31,6 +27,8 @@ class ArticleController extends AbstractController
      */
     public function show($slug)
     {
+
+//        dump($slug, $this);
 
         $comments = [
             'I ate a normal rock once. It did NOT taste like bacon!',
