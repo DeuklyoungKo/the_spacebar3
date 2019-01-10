@@ -9,6 +9,7 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Repository\ArticleRepository;
 use App\Service\SlackClient;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
@@ -31,13 +32,10 @@ class ArticleController extends AbstractController
     /**
      * @Route("/", name="app_homepage")
      */
-    public function homepage(EntityManagerInterface $em)
+    public function homepage(ArticleRepository $repository)
     {
 
-        $repository = $em->getRepository(Article::class);
-        $articles = $repository->findBy([],['publishedAt' => 'DESC']);
-
-
+        $articles = $repository->findAllPublishedOrderedByNewset();
 
         return $this->render('article/homepage.html.twig',[
             'articles' => $articles,
@@ -47,29 +45,24 @@ class ArticleController extends AbstractController
     /**
      * @Route("/news/{slug}/heart", name="article_toggle_heart",methods={"POST"})
      */
-    public function togglearticleHeart($slug, LoggerInterface $logger)
+    public function togglearticleHeart(Article $article, LoggerInterface $logger, EntityManagerInterface $em)
     {
 
+        $article->incrementHeartCount();
+        $em->flush();
+
         $logger->info('Article is being hearted!');
-        return new JsonResponse(['hearts' => rand(5,100)]);
+
+        return new JsonResponse(['hearts' => $article->getHeartCount()]);
     }
 
     /**
      * @Route("/news/{slug}", name="article_show")
      */
-    public function show($slug, SlackClient $slack, EntityManagerInterface $em)
+    public function show(Article $article, SlackClient $slack)
     {
-        if($slug === 'khaaaaaan'){
+        if($article->getSlug() === 'khaaaaaan'){
             $slack->sendMessage('kahn','Ah, Kirk, my old friend ...1');
-        }
-
-
-        $repository = $em->getRepository(Article::class);
-
-        $article = $repository->findOneBy(['slug' => $slug]);
-
-        if(!$article){
-            throw $this->createNotFoundException(sprintf('No article for slug "%s"', $slug));
         }
 
 
