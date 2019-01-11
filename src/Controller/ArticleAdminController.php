@@ -21,6 +21,8 @@ class ArticleAdminController
      */
     public function new(EntityManagerInterface $em)
     {
+
+        die('todo');
         $article = new Article();
         $article->setTitle('Why Aseroids taste Like Bacon')
             ->setSlug('why-asteroids-taste-like-bacon-'.rand(100,999))
