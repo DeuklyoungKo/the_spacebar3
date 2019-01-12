@@ -65,18 +65,8 @@ class ArticleController extends AbstractController
             $slack->sendMessage('kahn','Ah, Kirk, my old friend ...1');
         }
 
-
-        $comments = [
-            'I ate a normal rock once. It did NOT taste like bacon!',
-            'Woohoo! I\'m going on an all-asteroid diet!',
-            'I like bacon too! Buy some from my site! bakinsomebacon.com',
-        ];
-
-//        to test git
-
         return $this->render('article/show.html.twig',[
             'article' => $article,
-            'comments' => $comments,
         ]);
 
     }
