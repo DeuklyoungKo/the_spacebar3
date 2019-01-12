@@ -72,6 +72,7 @@ class ArticleController extends AbstractController
             'I like bacon too! Buy some from my site! bakinsomebacon.com',
         ];
 
+//        to test git
 
         return $this->render('article/show.html.twig',[
             'article' => $article,
