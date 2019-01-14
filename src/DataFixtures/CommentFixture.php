@@ -21,6 +21,8 @@ class CommentFixture extends BaseFixture implements DependentFixtureInterface
 
 //            $comment->setArticle($this->getReference(Article::class.'_'.$this->faker->numberBetween(0,9)));
             $comment->setArticle($this->getRandomReference(Article::class));
+
+            $comment->setIsDeleted($this->faker->boolean(20));
         });
 
         $manager->flush();
@@ -31,4 +33,6 @@ class CommentFixture extends BaseFixture implements DependentFixtureInterface
         // TODO: Implement getDependencies() method.
         return [ArticleFixtures::class];
     }
+
+
 }

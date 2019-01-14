@@ -26,6 +26,9 @@ class ArticleRepository extends ServiceEntityRepository
 
     public function findAllPublishedOrderedByNewset()
     {
+        $this->createQueryBuilder('a')
+            ->addCriteria(CommentRepository::createNonDeletedCriteria());
+
         return $this->addIsPublishedQueryBuilder()
             ->orderBy('a.publishedAt', 'DESC')
             ->getQuery()
@@ -56,4 +59,5 @@ class ArticleRepository extends ServiceEntityRepository
         ;
     }
     */
+
 }
