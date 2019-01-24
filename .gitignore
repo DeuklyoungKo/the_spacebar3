@@ -7,6 +7,6 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
-### phpstorm ###
+### Phpstorm ###
 /.idea/
 /public/etc
