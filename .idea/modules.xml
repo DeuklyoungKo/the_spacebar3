@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/public/etc/.idea/etc.iml" filepath="$PROJECT_DIR$/public/etc/.idea/etc.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/the_spacebar.iml" filepath="$PROJECT_DIR$/.idea/the_spacebar.iml" />
     </modules>
   </component>

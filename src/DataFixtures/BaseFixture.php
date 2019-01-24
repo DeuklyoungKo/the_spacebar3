@@ -50,15 +50,16 @@ abstract class BaseFixture extends Fixture
 
 
     protected function getRandomReference(string $className) {
+
         if (!isset($this->referencesIndex[$className])) {
             $this->referencesIndex[$className] = [];
-
             foreach ($this->referenceRepository->getReferences() as $key => $ref) {
                 if (strpos($key, $className.'_') === 0) {
                     $this->referencesIndex[$className][] = $key;
                 }
             }
         }
+
         if (empty($this->referencesIndex[$className])) {
             throw new \Exception(sprintf('Cannot find any references for class "%s"', $className));
         }
@@ -67,4 +68,14 @@ abstract class BaseFixture extends Fixture
 
         return $this->getReference($randomReferenceKey);
     }
+
+    protected function getRandomReferences(string $className, int $count) {
+        $references = [];
+        while( count($references) < $count){
+            $references[] = $this->getRandomReference($className);
+        }
+
+        return $references;
+    }
+
 }
