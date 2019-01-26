@@ -1,11 +1,8 @@
-{% extends 'base.html.twig' %}
+{% extends 'content_base.html.twig' %}
 
 {% block title %}Read: {{ article.title }}{% endblock %}
 {% block body %}
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="show-article-container p-3 mt-4">
+
                 <div class="row">
                     <div class="col-sm-12">
                         <img class="show-article-img" src="{{ asset(article.imagePath) }}">
@@ -35,7 +32,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3><i class="pr-3 fa fa-comment"></i>{{ comments|length }} Comments</h3>
+                        <h3><i class="pr-3 fa fa-comment"></i>{{ article.nonDeletedComments|length }} Comments</h3>
                         <hr>
 
                         <div class="row mb-5">
@@ -50,7 +47,7 @@
                                 </div>
                             </div>
                         </div>
-                        {% for comment in comments %}
+                        {% for comment in article.nonDeletedComments %}
                         <div class="row">
                             <div class="col-sm-12">
                                 <img class="comment-img rounded-circle" src="{{ asset('images/alien-profile.png') }}">
@@ -65,10 +62,6 @@
                         {% endfor %}
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 {% endblock %}
 

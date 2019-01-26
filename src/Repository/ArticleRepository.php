@@ -45,15 +45,15 @@ class ArticleRepository extends ServiceEntityRepository
         return $qb ?: $this->createQueryBuilder('a');
     }
 
-    /*
-    public function findOneBySomeField($value): ?Article
+    public function findPublishedOrderedByNewest()
     {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
+        $this->createQueryBuilder('a')
+            ->addCriteria(CommentRepository::createNonDeletedCriteria());
+
+        return $this->addIsPublishedQueryBuilder()
+            ->orderBy('a.publishedAt','DESC')
             ->getQuery()
-            ->getOneOrNullResult()
+            ->getResult()
         ;
     }
-    */
 }
