@@ -22,10 +22,7 @@ class Tag
      */
     private $id;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Article", mappedBy="tags")
-     */
-    private $articles;
+
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -37,6 +34,11 @@ class Tag
      * @Gedmo\Slug(fields={"name"})
      */
     private $slug;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Article", mappedBy="tags")
+     */
+    private $articles;
 
     public function __construct()
     {

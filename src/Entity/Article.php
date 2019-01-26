@@ -67,9 +67,17 @@ class Article
     private $comments;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\tag", inversedBy="articles")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Tag", inversedBy="articles")
      */
     private $tags;
+
+    /**
+     * @param ArrayCollection $tags
+     */
+    public function setTags(ArrayCollection $tags): void
+    {
+        $this->tags = $tags;
+    }
 
     public function __construct()
     {
