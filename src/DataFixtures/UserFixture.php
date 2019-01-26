@@ -2,15 +2,20 @@
 
 namespace App\DataFixtures;
 
-use Doctrine\Bundle\FixturesBundle\Fixture;
+use App\Entity\User;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class UserFixture extends Fixture
+class UserFixture extends BaseFixture
 {
-    public function load(ObjectManager $manager)
+    public function loadData(ObjectManager $manager)
     {
-        // $product = new Product();
-        // $manager->persist($product);
+        $this->createMany(10,'main_usrs', function($i){
+            $user = new User();
+            $user->setEmail(sprintf('spacebar%d@example.com', $i));
+            $user->setFirstName($this->faker->firstName);
+
+            return $user;
+        });
 
         $manager->flush();
     }
