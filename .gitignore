@@ -9,3 +9,8 @@
 ###< symfony/framework-bundle ###
 ### phpstorm ###
 /.idea/
+### phpstorm ###
+### test ###
+/src/Controller/TestController.php
+/public/etc/
+### test ###
