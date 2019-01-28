@@ -61,6 +61,7 @@ class ArticleController extends AbstractController
      */
     public function show(Article $article, SlackClient $slack)
     {
+
         if($article->getSlug() === 'khaaaaaan'){
             $slack->sendMessage('kahn','Ah, Kirk, my old friend ...1');
         }

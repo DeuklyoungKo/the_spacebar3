@@ -29,6 +29,10 @@ class UserFixture extends BaseFixture
                '1111'
             ));
 
+            if($this->faker->boolean){
+                $user->setTwitterUsername($this->faker->userName);
+            }
+
             return $user;
         });
 

@@ -21,6 +21,14 @@ class TestController extends AbstractController
     public function test(Request $request)
     {
 
+//        $result = getenv('APP_ENV')
+
+
+        dd();
+
+
+
+
         $session = $request->getSession();
 
         dump($session);
