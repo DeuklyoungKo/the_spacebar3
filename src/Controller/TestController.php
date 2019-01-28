@@ -1,14 +1,15 @@
 <?php
-
 namespace App\Controller;
 
+require_once __DIR__.'/../../public/etc/jsonTest.php';
+
 use App\Entity\User;
+use App\publics\etc\jsonTest;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
-
 
 class TestController extends AbstractController
 {
@@ -20,23 +21,38 @@ class TestController extends AbstractController
      */
     public function test(Request $request)
     {
+        $ins1 = new jsonTest();
+        dump($ins1);
+        $result = json_encode($ins1);
+        dd($result);
 
-//        $result = getenv('APP_ENV')
-
-
-        dd();
+    }
 
 
 
-
+    /**
+     * @Route("/test/session", name="test_session")
+     */
+    public function testSession(Request $request)
+    {
         $session = $request->getSession();
 
         dump($session);
-
+        dump(json_encode($session));
         $target = $this->getTargetPath($request->getSession(),'main');
         dd($target);
 
+        $result = $this->json($request);
+        dump($result);
+        $result = $request;
+//        $result = getenv('APP_ENV')
+//        $result = $this->getUser();
+
+        dd($result);
+
     }
+
+
 
     /**
      * @Route("/test/UserPassword", name="test_UserPassword")
