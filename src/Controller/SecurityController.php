@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Security\LoginFormAuthenticator;
+use mysql_xdevapi\Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -42,6 +43,8 @@ class SecurityController extends AbstractController
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, LoginFormAuthenticator $formAuthenticator)
     {
+
+
         // TODO - use Symfony forms & validation
         if($request->isMethod('POST')){
             $user = new User();
@@ -54,8 +57,15 @@ class SecurityController extends AbstractController
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
-            $em->flush();
+            try{
+                $em->flush();
+            }catch(\Exception $exception){
+//                throw $this->createAccessDeniedException('No access!');
+                throw new InvalidCsrfTokenException();
 
+//                $this->addFlash('error', 'db Error!');
+                return $this->render('security/register.html.twig');
+            }
 
             return $guardHandler->authenticateUserAndHandleSuccess(
                 $user,

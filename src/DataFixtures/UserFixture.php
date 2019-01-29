@@ -21,7 +21,7 @@ class UserFixture extends BaseFixture
 
     public function loadData(ObjectManager $manager)
     {
-        $this->createMany(10,'main_usrs', function($i) use ($manager){
+        $this->createMany(10,'main_users', function($i) use ($manager){
             $user = new User();
             $user->setEmail(sprintf('spacebar%d@example.com', $i));
             $user->setFirstName($this->faker->firstName);
