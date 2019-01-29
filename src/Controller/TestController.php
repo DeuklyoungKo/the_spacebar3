@@ -3,6 +3,7 @@ namespace App\Controller;
 
 require_once __DIR__.'/../../public/etc/jsonTest.php';
 
+use App\Entity\ApiToken;
 use App\Entity\User;
 use App\publics\etc\jsonTest;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,7 +20,37 @@ class TestController extends AbstractController
     /**
      * @Route("/test", name="test")
      */
-    public function test(Request $request)
+    public function test()
+    {
+
+        $user = $this->getUser();
+        dump($user);
+        $token = new ApiToken($user);
+        dump($token);
+        $result = $token->getUser();
+        dd($result);
+
+    }
+
+
+    /**
+     * @Route("/test/randumBytes", name="test_randomBytes")
+     */
+    public function testRandomBytes()
+    {
+
+        $result = random_bytes(60);
+        dump($result);
+        $result = bin2hex($result);
+        dd($result);
+
+    }
+
+
+    /**
+     * @Route("/test/json", name="test_json")
+     */
+    public function testJson(Request $request)
     {
         $ins1 = new jsonTest();
         dump($ins1);
@@ -27,8 +58,6 @@ class TestController extends AbstractController
         dd($result);
 
     }
-
-
 
     /**
      * @Route("/test/session", name="test_session")
