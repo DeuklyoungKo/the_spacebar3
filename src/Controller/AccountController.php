@@ -30,7 +30,7 @@ class AccountController extends BaseController
     {
         $user = $this->getUser();
         return $this->json($user, 200, [], [
-            'gorups' => ['main']
+            'groups' => ['main']
         ]);
     }
 }
