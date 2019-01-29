@@ -60,10 +60,7 @@ class SecurityController extends AbstractController
             try{
                 $em->flush();
             }catch(\Exception $exception){
-//                throw $this->createAccessDeniedException('No access!');
-                throw new InvalidCsrfTokenException();
-
-//                $this->addFlash('error', 'db Error!');
+                $this->addFlash('error', 'db Error!');
                 return $this->render('security/register.html.twig');
             }
 
