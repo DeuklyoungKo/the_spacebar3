@@ -43,8 +43,6 @@ class SecurityController extends AbstractController
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, LoginFormAuthenticator $formAuthenticator)
     {
-
-
         // TODO - use Symfony forms & validation
         if($request->isMethod('POST')){
             $user = new User();
