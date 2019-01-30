@@ -9,6 +9,7 @@
 ###< symfony/framework-bundle ###
 ### phpstorm ###
 /.idea/
+/.idea/workspace.xml
 ### phpstorm ###
 ### test ###
 /src/Controller/TestController.php
