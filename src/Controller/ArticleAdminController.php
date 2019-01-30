@@ -73,13 +73,12 @@ EOF
 
     /**
      * @Route("/admin/article/{id}/edit")
+     * @IsGranted("MANAGE", subject="article")
      */
     public function edit(Article $article)
     {
 
-        if($article->getAuthor() != $this->getUser() && !$this->isGranted("ROLE_ADMIN_ARTICLE")){
-            throw $this->createAccessDeniedException('No access!');
-        }
+//        $this->denyAccessUnlessGranted('MANAGE', $article);
         dd($article);
     }
 }
