@@ -23,6 +23,7 @@ class ArticleVoter extends Voter
 
     protected function supports($attribute, $subject)
     {
+
         // replace with your own logic
         // https://symfony.com/doc/current/security/voters.html
 

@@ -5,7 +5,6 @@ namespace App\Entity;
 use App\Repository\CommentRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
@@ -259,5 +258,9 @@ class Article
         return $this;
     }
 
+    public function isPublished(): bool
+    {
+        return $this->publishedAt !== null;
+    }
 
 }
