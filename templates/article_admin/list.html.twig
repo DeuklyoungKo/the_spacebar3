@@ -18,7 +18,7 @@
                 <td>{{ article.title }}</td>
                 <td>{{ article.author.email }}</td>
                 <td>
-                    <span class="fa fa-{{ article.isPublished ? 'check' : 'times' }}"></span>
+                    <span class="fa fa-{{ article.publishedAt ? 'check' : 'times' }}"></span>
                 </td>
             </tr>
         {% endfor %}
