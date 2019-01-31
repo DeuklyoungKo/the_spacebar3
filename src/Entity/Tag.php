@@ -101,4 +101,6 @@ class Tag
 
         return $this;
     }
+
 }
+
