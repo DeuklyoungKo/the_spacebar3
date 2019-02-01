@@ -6,15 +6,20 @@
     <link rel="stylesheet" href="{{ asset('css/login.css') }}"
 {% endblock %}
 {% block body %}
-    {# todo - replae with a Symfony form! #}
+        {{  form_start(registrationForm) }}
+            {{ form_widget(registrationForm) }}
+            <button class="btn btn-lg btn-primary btn-block" type="submit">
+                Register
+            </button>
+        {{ form_end(registrationForm) }}
+
+{#
     {% for message in app.flashes('error') %}
         <div class="alert alert-success">
             {{ message }}
         </div>
     {% endfor %}
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+
     <form class="form-signin" method="post">
         <h1 class="h3 mb-3 font-weight-normal">Register</h1>
         <label for="inputEmail" class="sr-only">Email address</label>
@@ -30,4 +35,5 @@
             Register
         </button>
     </form>
+    #}
 {% endblock %}

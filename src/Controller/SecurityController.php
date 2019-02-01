@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\UserRegistrationFormType;
 use App\Security\LoginFormAuthenticator;
 use mysql_xdevapi\Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -44,8 +45,35 @@ class SecurityController extends AbstractController
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, LoginFormAuthenticator $formAuthenticator)
     {
 
+        $form = $this->createForm(UserRegistrationFormType::class);
+        $form->handleRequest($request);
 
-        // TODO - use Symfony forms & validation
+        if ($form->isSubmitted() && $form->isValid()) {
+            /** @var User $user */
+            $user = $form->getData();
+
+            $user->setPassword($passwordEncoder->encodePassword(
+                $user,
+                $user->getPassword()
+            ));
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+
+            return $guardHandler->authenticateUserAndHandleSuccess(
+                $user,
+                $request,
+                $formAuthenticator,
+                'main'
+            );
+
+        }
+
+        return $this->render('security/register.html.twig', [
+            'registrationForm' => $form->createView(),
+        ]);
+/*
         if($request->isMethod('POST')){
             $user = new User();
             $user->setEmail($request->request->get('email'));
@@ -61,9 +89,9 @@ class SecurityController extends AbstractController
                 $em->flush();
             }catch(\Exception $exception){
 //                throw $this->createAccessDeniedException('No access!');
-                throw new InvalidCsrfTokenException();
+//                throw new InvalidCsrfTokenException();
 
-//                $this->addFlash('error', 'db Error!');
+                $this->addFlash('error', 'db Error!');
                 return $this->render('security/register.html.twig');
             }
 
@@ -76,5 +104,7 @@ class SecurityController extends AbstractController
         }
 
         return $this->render('security/register.html.twig');
+*/
+
     }
 }
