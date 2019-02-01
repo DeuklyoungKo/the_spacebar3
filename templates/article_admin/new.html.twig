@@ -5,7 +5,9 @@
 
     {{ form_start(articleForm) }}
         {#{{ form_widget(articleForm) }}#}
-        {{ form_row(articleForm.title) }}
+        {{ form_row(articleForm.title, {
+            label: 'Article title'
+        }) }}
         {{ form_row(articleForm.author) }}
         {{ form_row(articleForm.content) }}
         {{ form_row(articleForm.publishedAt) }}
