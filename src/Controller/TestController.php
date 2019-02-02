@@ -3,14 +3,17 @@ namespace App\Controller;
 
 require_once __DIR__.'/../../public/etc/jsonTest.php';
 
-use App\Entity\ApiToken;
 use App\Entity\User;
 use App\publics\etc\jsonTest;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class TestController extends AbstractController
 {
@@ -18,17 +21,56 @@ class TestController extends AbstractController
     use TargetPathTrait;
 
     /**
-     * @Route("/test", name="test")
+     * @Route("/test/{objName}", name="test")
      */
-    public function test()
+    public function test(ValidatorInterface $validator, string $objName)
     {
 
-        $user = $this->getUser();
-        dump($user);
-        $token = new ApiToken($user);
-        dump($token);
-        $result = $token->getUser();
-        dd($result);
+        $class = 'App\Controller\\'.$objName;
+        $object = new $class();
+
+        // ... do something to the $author object
+
+        $errors = $validator->validate($object);
+
+        if (count($errors) > 0) {
+            /*
+             * Uses a __toString method on the $errors variable which is a
+             * ConstraintViolationList object. This gives us a nice string
+             * for debugging.
+             */
+            $errorsString = (string) $errors;
+
+            return new Response($errorsString);
+        }
+
+        return new Response('The author is valid! Yes!');
+
+        /*
+        // https://stackoverflow.com/questions/4578335/creating-php-class-instance-with-a-string
+        // http://php.net/manual/en/language.variables.variable.php
+        $str = 'One';
+        $class = 'Class'.$str;
+        $object = new $class();
+        When using namespaces, supply the fully qualified name:
+
+        $class = '\Foo\Bar\MyClass';
+        $instance = new $class();
+        Other cool stuff you can do in php are:
+        Variable variables:
+
+        $personCount = 123;
+        $varname = 'personCount';
+        echo $$varname; // echo's 123
+        And variable functions & methods.
+
+        $func = 'my_function';
+        $func('param1'); // calls my_function('param1');
+
+        $method = 'doStuff';
+        $object = new MyClass();
+        $object->$method(); // calls the MyClass->doStuff() method.
+        */
 
     }
 
@@ -99,4 +141,18 @@ class TestController extends AbstractController
 
         dd($return);
     }
+
+
 }
+
+
+class Author
+{
+    public $name = 'gogogo';
+
+    public static function loadValidatorMetadata(ClassMetadata $metadata)
+    {
+        $metadata->addPropertyConstraint('name', new NotBlank());
+    }
+}
+
