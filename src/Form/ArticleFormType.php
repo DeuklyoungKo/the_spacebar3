@@ -35,6 +35,9 @@ class ArticleFormType extends AbstractType
             ->add('publishedAt',null,[
                 'widget' => 'single_text',
             ])
+
+            ->add('author', UserSelectTextType::class)
+/*
             ->add('author', EntityType::class, [
                 'class' => User::class,
                 'choice_label' => function(User $user) {
@@ -43,15 +46,9 @@ class ArticleFormType extends AbstractType
                 'placeholder' => 'Choose an author',
                 'choices' => $this->userRepository->findAllEmailAlphabetical(),
                 'invalid_message' => 'Symfony is too smart for your hacking!',
-
             ])
-//            ->add('slug')
-//            ->add('heartCount')
-//            ->add('imageFilename')
-//            ->add('createdAt')
-//            ->add('updatedAt')
-//            ->add('tags')
-//            ->add('author')
+*/
+
         ;
     }
 
