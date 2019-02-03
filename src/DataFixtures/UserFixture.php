@@ -34,6 +34,8 @@ class UserFixture extends BaseFixture
                 $user->setTwitterUsername($this->faker->userName);
             }
 
+            $user->agreeToTerms();
+
             $apiToken1 = new ApiToken($user);
             $apiToken2 = new ApiToken($user);
             $manager->persist($apiToken1);
@@ -53,6 +55,7 @@ class UserFixture extends BaseFixture
                 $user,
                 '1111'
             ));
+            $user->agreeToTerms();
 
             return $user;
         });
