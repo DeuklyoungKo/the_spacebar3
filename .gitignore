@@ -12,6 +12,6 @@
 /.idea/workspace.xml
 ### phpstorm ###
 ### test ###
-/src/Controller/TestController.php
-/public/etc/
+#/src/Controller/TestController.php
+#/public/etc/
 ### test ###

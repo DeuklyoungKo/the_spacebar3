@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fa1a191e-7dd7-46d4-9ae6-f0137b4daea2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/register.html.twig" afterDir="false" />
-    </list>
+    <list default="true" id="fa1a191e-7dd7-46d4-9ae6-f0137b4daea2" name="Default Changelist" comment="to test json" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,13 +13,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/security/register.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="29" selection-start-line="29" selection-end-line="35" selection-end-column="55" />
+            <state relative-caret-position="380">
+              <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
               <folding>
                 <element signature="e#12#26#0#Twig" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/etc/jsonTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="14" column="28" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+              <folding>
+                <element signature="e#6#89#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -31,7 +40,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vendor/symfony/twig-bridge/Resources/views/Form/bootstrap_4_layout.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1914">
+            <state relative-caret-position="5092">
               <caret line="268" selection-start-line="268" selection-end-line="268" />
               <folding>
                 <element signature="e#8#39#0#Twig" expanded="true" />
@@ -43,7 +52,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vendor/symfony/twig-bridge/Resources/views/Form/bootstrap_base_layout.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
+            <state relative-caret-position="3648">
               <caret line="192" column="23" selection-start-line="192" selection-start-column="15" selection-end-line="192" selection-end-column="23" />
               <folding>
                 <element signature="e#8#33#0#Twig" expanded="true" />
@@ -64,11 +73,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/SecurityController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
+            <state relative-caret-position="931">
               <caret line="58" column="13" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
-              <folding>
-                <element signature="e#2186#2215#0#PHP" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -120,9 +126,9 @@
       <find>password</find>
       <find>block type</find>
       <find>UserRegistrationFormType</find>
-      <find>form_row</find>
       <find>registrationForm</find>
       <find>form_widget</find>
+      <find>form_row</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -132,7 +138,9 @@
     </dirStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/public/etc" />
+    <option name="RECENT_COMMON_BRANCH" value="master" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -157,7 +165,6 @@
         <option value="$PROJECT_DIR$/src/DataFixtures/ArticleFixtures.php" />
         <option value="$PROJECT_DIR$/src/DataFixtures/BaseFixture.php" />
         <option value="$PROJECT_DIR$/templates/article/homepage.html.twig" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/public/etc/data/setupDb.php" />
         <option value="$PROJECT_DIR$/public/etc/src/DiDemo/Mailer/MailerInterface.php" />
         <option value="$PROJECT_DIR$/public/etc/src/DiDemo/Mailer/SmtpMailer.php" />
@@ -180,7 +187,6 @@
         <option value="$PROJECT_DIR$/src/Controller/TestController.php" />
         <option value="$PROJECT_DIR$/src/Migrations/Version20190203092343.php" />
         <option value="$PROJECT_DIR$/src/Entity/User.php" />
-        <option value="$PROJECT_DIR$/src/Controller/SecurityController.php" />
         <option value="$PROJECT_DIR$/src/DataFixtures/UserFixture.php" />
         <option value="$PROJECT_DIR$/src/Form/UserRegistrationFormType.php" />
         <option value="$PROJECT_DIR$/public/etc/test.php" />
@@ -188,6 +194,8 @@
         <option value="$PROJECT_DIR$/public/etc/jsonTest.php" />
         <option value="$PROJECT_DIR$/templates/base.html.twig" />
         <option value="$PROJECT_DIR$/templates/security/register.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/SecurityController.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -349,17 +357,6 @@
             <path>
               <item name="the_spacebar" type="b2602c69:ProjectViewProjectNode" />
               <item name="the_spacebar" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="the_spacebar" type="b2602c69:ProjectViewProjectNode" />
-              <item name="the_spacebar" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="packages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="the_spacebar" type="b2602c69:ProjectViewProjectNode" />
-              <item name="the_spacebar" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -410,17 +407,18 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\PHP\docker\var\www\the_spacebar\public\etc" />
+      <recent name="D:\PHP\docker\var\www\the_spacebar\src\Controller" />
+      <recent name="D:\PHP\docker\var\www\the_spacebar\templates" />
+      <recent name="D:\PHP\docker\var\www\the_spacebar\templates\article" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\PHP\docker\var\www\the_spacebar\templates\article_admin" />
       <recent name="D:\PHP\docker\var\www\the_spacebar\public\etc" />
       <recent name="D:\PHP\docker\var\www\the_spacebar\templates\security" />
       <recent name="D:\PHP\docker\var\www\the_spacebar\public\css" />
       <recent name="D:\PHP\docker\var\www\the_spacebar\src\Controller" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\PHP\docker\var\www\the_spacebar\src\Controller" />
-      <recent name="D:\PHP\docker\var\www\the_spacebar\templates" />
-      <recent name="D:\PHP\docker\var\www\the_spacebar\templates\article" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -463,7 +461,7 @@
       <workItem from="1548765898785" duration="17794000" />
       <workItem from="1548908338210" duration="755000" />
       <workItem from="1548930886139" duration="40623000" />
-      <workItem from="1549064325609" duration="23859000" />
+      <workItem from="1549064325609" duration="25032000" />
     </task>
     <task id="LOCAL-00001" summary="for chapter 5-3">
       <created>1548514340004</created>
@@ -794,11 +792,25 @@
       <option name="project" value="LOCAL" />
       <updated>1549209955507</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="for chapter 6-22">
+      <created>1549212229442</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1549212229442</updated>
+    </task>
+    <task id="LOCAL-00049" summary="to test json">
+      <created>1549213728764</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1549213728764</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="314942000" />
+    <option name="totallyTimeSpent" value="316209000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -814,12 +826,12 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.28727272" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.28727272" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.32884398" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
-      <window_info anchor="bottom" x="263" y="343" width="472" height="361" id="Event Log" order="2" sideWeight="0.5005291" type="SLIDING" weight="0.39845476" />
-      <window_info anchor="bottom" id="Version Control" order="3" />
+      <window_info anchor="bottom" x="263" y="343" width="472" height="361" id="Event Log" order="2" sideWeight="0.5005291" type="SLIDING" weight="0.39842874" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="3" visible="true" weight="0.32996634" />
       <window_info anchor="bottom" id="Docker" order="4" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.3289183" />
@@ -880,8 +892,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="for chapter 5-25" />
-    <MESSAGE value="for chapter 5-26" />
     <MESSAGE value="for chapter 5-27" />
     <MESSAGE value="for chapter 5-30" />
     <MESSAGE value="for chapter 5-32" />
@@ -905,17 +915,12 @@
     <MESSAGE value="for chapter 6-17" />
     <MESSAGE value="for chapter 6-19" />
     <MESSAGE value="for chapter 6-21" />
-    <option name="LAST_COMMIT_MESSAGE" value="for chapter 6-21" />
+    <MESSAGE value="for chapter 6-22" />
+    <MESSAGE value="to test json" />
+    <option name="LAST_COMMIT_MESSAGE" value="to test json" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/debug/ErrorHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="583" selection-start-line="583" selection-end-line="583" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/CurlMultiHandler.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1187,16 +1192,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/etc/jsonTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-          <folding>
-            <element signature="e#6#89#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/etc/test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -1221,16 +1216,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/SecurityController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="58" column="13" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
-          <folding>
-            <element signature="e#2186#2215#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/article_admin/_form.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -1238,19 +1223,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/twig-bridge/Resources/views/Form/bootstrap_base_layout.html.twig">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="192" column="23" selection-start-line="192" selection-start-column="15" selection-end-line="192" selection-end-column="23" />
+        <state relative-caret-position="57">
+          <caret line="3" column="15" lean-forward="true" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/security/register.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
           <folding>
-            <element signature="e#8#33#0#Twig" expanded="true" />
+            <element signature="e#12#26#0#Twig" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/twig-bridge/Resources/views/Form/bootstrap_4_layout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1914">
+        <state relative-caret-position="5092">
           <caret line="268" selection-start-line="268" selection-end-line="268" />
           <folding>
             <element signature="e#8#39#0#Twig" expanded="true" />
@@ -1258,10 +1250,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/UserRegistrationFormType.php">
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/twig-bridge/Resources/views/Form/bootstrap_base_layout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="33" column="29" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="29" />
+        <state relative-caret-position="3648">
+          <caret line="192" column="23" selection-start-line="192" selection-start-column="15" selection-end-line="192" selection-end-column="23" />
+          <folding>
+            <element signature="e#8#33#0#Twig" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1272,12 +1267,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/security/register.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/Controller/SecurityController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="29" selection-start-line="29" selection-end-line="35" selection-end-column="55" />
+        <state relative-caret-position="931">
+          <caret line="58" column="13" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/UserRegistrationFormType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="33" column="29" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/etc/jsonTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="28" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
           <folding>
-            <element signature="e#12#26#0#Twig" expanded="true" />
+            <element signature="e#6#89#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
