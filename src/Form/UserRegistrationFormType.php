@@ -29,15 +29,17 @@ class UserRegistrationFormType extends AbstractType
                         'min' => 5,
                         'minMessage' => 'Come on, you can think of a password longer than that!'
                     ])
-                ]
+                ],
+                'help' => 'This is a help message of Password !!!',
             ])
             ->add('agreeTerms', CheckboxType::class,[
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'I know, it\s silly, but you must agree to our terms.'
+                        'message' => 'I know, it\'s silly, but you must agree to our terms.'
                     ])
-                ]
+                ],
+                'help' => 'This is a help message of CheckBox !!!',
             ])
         ;
     }
