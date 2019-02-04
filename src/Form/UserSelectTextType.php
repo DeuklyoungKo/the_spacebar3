@@ -8,19 +8,19 @@ use \Symfony\Component\Form\AbstractType;
 use \Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Routing\RouterInterface;
 
 
 class UserSelectTextType extends AbstractType
 {
 
-    /**
-     * @var UserRepository
-     */
     private $userRepository;
+    private $router;
 
-    public function __construct(UserRepository $userRepository)
+    public function __construct(UserRepository $userRepository, RouterInterface $router)
     {
         $this->userRepository = $userRepository;
+        $this->router = $router;
     }
 
     public function getParent(){
@@ -43,7 +43,8 @@ class UserSelectTextType extends AbstractType
                 return $userRepository->findOneBy(['email' => $email]);
             },
             'attr' => [
-                'class' => 'js-user-autocomplete'
+                'class' => 'js-user-autocomplete',
+                'data-autocomplete-url' => $this->router->generate('admin_utility_users')
             ]
         ]);
     }
