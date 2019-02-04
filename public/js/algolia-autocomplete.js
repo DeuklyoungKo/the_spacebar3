@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $('.js-user-autocomplete').each(function () {
+
         var autocompleteUrl = $(this).data('autocomplete-url');
 
         $(this).autocomplete({ hint: false }, [
@@ -8,6 +9,8 @@ $(document).ready(function () {
                     $.ajax({
                         url: autocompleteUrl+'?query='+query
                     }).then(function (data) {
+
+                        console.log(data);
                         cb(data.users);
                     })
                 },
