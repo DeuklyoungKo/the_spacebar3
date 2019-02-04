@@ -27,6 +27,11 @@ class ArticleFormType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
+        $article = $options['data'] ?? null;
+        $isEdit = $article && $article->getId();
+
+
         $builder
             ->add('title',TextType::class, [
                 'help' => 'Choose something catchy!',
@@ -34,22 +39,16 @@ class ArticleFormType extends AbstractType
             ->add('content', null, [
                 'rows' => 14
             ])
-            ->add('publishedAt',null,[
-                'widget' => 'single_text',
-            ])
+            ->add('author', UserSelectTextType::class, [
+                'disabled' => $isEdit,
+            ]);
 
-            ->add('author', UserSelectTextType::class)
-/*
-            ->add('author', EntityType::class, [
-                'class' => User::class,
-                'choice_label' => function(User $user) {
-                    return sprintf('(%d) %s', $user->getId(), $user->getEmail());
-                },
-                'placeholder' => 'Choose an author',
-                'choices' => $this->userRepository->findAllEmailAlphabetical(),
-                'invalid_message' => 'Symfony is too smart for your hacking!',
-            ])
-*/
+            if ($options['include_published_at']) {
+
+                $builder->add('publishedAt', null, [
+                    'widget' => 'single_text',
+                ]);
+            }
 
         ;
     }
@@ -57,7 +56,8 @@ class ArticleFormType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Article::class
+            'data_class' => Article::class,
+            'include_published_at' => false,
         ]);
     }
 }
