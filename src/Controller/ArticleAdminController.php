@@ -63,11 +63,17 @@ class ArticleAdminController extends AbstractController
             'include_published_at' => true
         ]);
 
+//        dd($request);
+
         $form->handleRequest($request);
+
+
         if ($form->isSubmitted() && $form->isValid()){
 
             /** @var Article $article */
             $article = $form->getData();
+
+
 
             $em->persist($article);
             $em->flush();
