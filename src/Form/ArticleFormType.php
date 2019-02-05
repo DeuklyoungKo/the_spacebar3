@@ -36,8 +36,6 @@ class ArticleFormType extends AbstractType
         /** @var Article|null $article */
         $article = $options['data'] ?? null;
         $isEdit = $article && $article->getId();
-//        $location = $article ? $article->getLocation() : null;
-
 
         $builder
             ->add('title',TextType::class, [
@@ -65,16 +63,6 @@ class ArticleFormType extends AbstractType
                 'widget' => 'single_text',
             ]);
         }
-
-        /*
-        if ($location) {
-            $builder->add('specificLocationName', ChoiceType::class,[
-                'placeholder' => 'Where exactly',
-                'choices' => $this->getLocationNameChoices($location),
-                'required' => false,
-            ]);
-        }
-        */
 
 
         $builder->get('location')->addEventListener(
