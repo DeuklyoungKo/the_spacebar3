@@ -295,9 +295,15 @@ class Article
         return $this->location;
     }
 
-    public function setLocation(string $location): self
+    public function setLocation(?string $location): self
     {
         $this->location = $location;
+
+        dump($this->location);
+
+        if (!$this->location || $this->location === 'interstellar_space') {
+            $this->setSpecificLocationName(null);
+        }
 
         return $this;
     }
@@ -307,7 +313,7 @@ class Article
         return $this->specificLocationName;
     }
 
-    public function setSpecificLocationName(string $specificLocationName): self
+    public function setSpecificLocationName(?string $specificLocationName): self
     {
         $this->specificLocationName = $specificLocationName;
 

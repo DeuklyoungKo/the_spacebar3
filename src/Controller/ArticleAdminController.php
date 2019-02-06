@@ -15,10 +15,11 @@ use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 
-class ArticleAdminController extends AbstractController
+class ArticleAdminController extends BaseController
 {
 
     /**
@@ -99,6 +100,30 @@ class ArticleAdminController extends AbstractController
         $articles = $articleRepo->findAll();
         return $this->render('article_admin/list.html.twig',[
             'articles' => $articles,
+        ]);
+    }
+
+
+    /**
+     * @Route("/admin/article/location-select", name="admin_article_location_select")
+     * @IsGranted("ROLE_USER")
+     */
+    public function getSpecificLocationSelect(Request $request)
+    {
+        if (!$this->isGranted('ROLE_ADMIN_ARTICLE') && $this->getUser()->getArticles()->isEmpty()) {
+            throw $this->createAccessDeniedException();
+        }
+
+        $article = new Article();
+        $article->setLocation($request->query->get('location'));
+        $form = $this->createForm(ArticleFormType::class, $article);
+
+        if (!$form->has('specificLocationName')) {
+            return new Response(null, 204);
+        }
+
+        return $this->render('article_admin/_specific_location_name.html.twig', [
+            'articleForm' => $form->createView(),
         ]);
     }
 }

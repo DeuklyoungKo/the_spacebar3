@@ -47,6 +47,17 @@ class ArticleFormType extends AbstractType
             ->add('author', UserSelectTextType::class, [
                 'disabled' => $isEdit,
             ])
+//            ->add('location', ChoiceType::class, [
+//                'choices' => [
+//                    'The Solar System' => 'solar_system',
+//                    'Near a star' => 'star',
+//                    'Interstellar Space' => 'interstellar_space'
+//                ],
+//                'placeholder' => 'Choose a location',
+//                'empty_data' => '',
+//                'required' => false,
+//            ])
+
             ->add('location', ChoiceType::class,[
                 'choices' => [
                     'The Solar System' => 'solar_system',
@@ -54,7 +65,8 @@ class ArticleFormType extends AbstractType
                     'Interstellar Space' => 'interstellar_space'
                 ],
                 'placeholder' => 'Choose a location',
-                'required' => false
+                'required' => false,
+                'empty_data' => null
             ])
         ;
 
@@ -91,6 +103,8 @@ class ArticleFormType extends AbstractType
                 );
             }
         );
+
+
 
     }
 
@@ -129,7 +143,7 @@ class ArticleFormType extends AbstractType
             'star' => array_combine($stars, $stars),
             'interstellar_space' => null,
         ];
-        return $locationNameChoices[$location];
+        return $locationNameChoices[$location] ?? null;
     }
 
 
