@@ -10,12 +10,17 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Repository\ArticleRepository;
+
+use App\Service\MarkdownHelper;
 use App\Service\SlackClient;
 use Doctrine\ORM\EntityManagerInterface;
+
+use KnpU\LoremIpsumBundle\KnpUIpsum;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
+use TestBundle\Test;
 
 class ArticleController extends AbstractController
 {
@@ -23,10 +28,20 @@ class ArticleController extends AbstractController
      * @var
      */
     private $isDebug;
+    /**
+     * @var KnpUIpsum
+     */
+    private $knpUIpsum;
+    /**
+     * @var Test
+     */
+    private $test;
 
-    public function __construct(bool $isDebug)
+    public function __construct(bool $isDebug, KnpUIpsum $knpUIpsum, Test $test)
     {
         $this->isDebug = $isDebug;
+        $this->knpUIpsum = $knpUIpsum;
+        $this->test = $test;
     }
 
     /**
@@ -59,7 +74,7 @@ class ArticleController extends AbstractController
     /**
      * @Route("/news/{slug}", name="article_show")
      */
-    public function show(Article $article, SlackClient $slack)
+    public function show(Article $article, SlackClient $slack, MarkdownHelper $markdownHelper)
     {
 
         if($article->getSlug() === 'khaaaaaan'){
@@ -73,10 +88,16 @@ class ArticleController extends AbstractController
             'I like bacon too! Buy some from my site! bakinsomebacon.com',
         ];
 
+        $articleContent = $this->knpUIpsum->getParagraphs();
+
+        $articleContent = $markdownHelper->parse($articleContent);
+
+        $articleContent .= sprintf('<br>countString = %s', $this->test->countString($articleContent));
 
         return $this->render('article/show.html.twig',[
             'article' => $article,
             'comments' => $comments,
+            'articleContent' => $articleContent,
         ]);
 
     }
